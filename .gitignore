@@ -1,0 +1,9 @@
+# Ignorar archivos compilados
+target/
+*.class
+
+# Ignorar configuraciones de VS Code y otros editores
+.vscode/
+.idea/
+*.iml
+*.sub
