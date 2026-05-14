@@ -7,21 +7,21 @@ public class Venta {
     private String folio;
     private String fecha;
     private Usuario cajero;
-    private List<Producto> listaProductos;
+    private List<DetalleVenta> listaDetalles;
     private double total;
     
-    public Venta(String folio, String fecha, Usuario cajero, List<Producto> listaProductos) {
+    public Venta(String folio, String fecha, Usuario cajero, List<DetalleVenta> listaDetalles) {
         this.folio = folio;
         this.fecha = fecha;
         this.cajero = cajero;
-        this.listaProductos = listaProductos;
+        this.listaDetalles = listaDetalles;
         this.total = 0.0;
     }
 
     public void calcularTotal() {
         this.total = 0.0;
-        for (Producto p: listaProductos) {
-            this.total = this.total + p.getPrecioVenta();
+        for (DetalleVenta detalle: listaDetalles) {
+            this.total = this.total + detalle.getSubtotal();
         }
     }
 
@@ -51,20 +51,20 @@ public class Venta {
         this.cajero = cajero;
     }
 
-    public List<Producto> getListaProductos() {
-        return listaProductos;
-    }
-
-    public void setListaProductos(List<Producto> listaProductos) {
-        this.listaProductos = listaProductos;
-    }
-
     public double getTotal() {
         return total;
     }
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public List<DetalleVenta> getListaDetalles() {
+        return listaDetalles;
+    }
+
+    public void setListaDetalles(List<DetalleVenta> listaDetalles) {
+        this.listaDetalles = listaDetalles;
     }
     
 
